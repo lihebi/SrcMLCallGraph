@@ -1,0 +1,34 @@
+#+TITLE: Call Graph based on srcml
+
+* Compile and Run
+To compile, you need to compile install pugixml devel package,
+which includes the header file and dynamic library.
+
+Issue =make= to compile. The executable is =./cg=.
+
+* Usage
+#+BEGIN_SRC shell
+./cg /path/to/benchmark/dir
+#+END_SRC
+
+
+* Brief Code Description
+This implementation starts from scratch from the output of srcml.
+The output is an AST like parsing result in XML format.
+This tool works for C/C++ code.
+
+First, the tool scan all files with certain extensions,
+and parse them into xml documents.
+Then, the code gather all the function definitions, all the class information
+and resolve their methods.
+Further it resolve the class hierarchy.
+It then builds indices for methods, and functions, and classes.
+
+* Features
+ * Handle virtual function calls
+ * Implemented RA
+ * Implemented CHA
+ * Implemented RTA
+ * Implemented RA_lib, working on library code
+ * Implemented CHA_lib, working on library code
+ * Implemented RTA_lib, working on library code
